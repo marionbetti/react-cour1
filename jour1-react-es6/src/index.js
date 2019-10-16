@@ -21,10 +21,11 @@ const person = {
 // deux manières d'utiliser de méthode
 person.marcher();
 
-//const action = "marcher";
-//person[action](); // autre manière d'éxécuter les instructions de person.marcher
+// const action = "marcher";
+// person[action](); // autre manière d'éxécuter les instructions de person.marcher
 
-const etudiant = person.marcher; //attention on ne met pas les parenthéses
+const etudiant = person.marcher.bind(person); // bind(); == associer
+// attention on ne met pas les parenthéses
 // passage par reference
 // etudiant va contenir les instructions contenus dans la méthode marcher
 console.log("etudiant", etudiant);
@@ -38,4 +39,8 @@ etudiant();
 // renvoyer windows
 // this renvoie le contexte d'éxécution
 // person.marcher(); this=person{} donc this.nom = "Alain"
-// etudiant(); this => window donc this.nom = undifined
+// etudiant(); this => window donc { this.nom } = undifined
+
+// pour éviter que { this } devienne { window } => this.nom == window.nom == undifined
+// les fonctions qui sont des objets dispose d'une méthode qui s'appelle { bind (person)}
+// cette méthode de fonction permet de garantir que { this == person } quelque soit le contetxe dexecution
