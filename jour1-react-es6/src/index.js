@@ -1,18 +1,17 @@
-const a = [1, 2, 3];
-const b = [4, 5, 6];
+class Person {
+  // Majuscule en 1ére lettre
+  // on n'est pas en typescript private /public /protected n'existes pas
 
-//concaténer des tableaux : sommer le contenu des deux tableaux
-// méthode old school:
+  constructor(nom) {
+    // dispose d'une fonction constuctor éxécutée lorsque l'on fait un new
+    // instancier les variables de class
+    this.name = nom;
+  }
+  apprendre() {
+    console.log(this.name + " est en train de se former en javascript");
+  }
+}
 
-const c = a.concat(b);
+const Alain = new Person("Alain");
 
-console.log(c);
-
-// méthode new school:
-// [...x] ==> prend moi tous le tableau
-const d = [...a, ...b]; // spread opérateur
-console.log(d);
-
-const e = [...a, "un texte", ...b];
-
-console.log(e);
+Alain.apprendre();
