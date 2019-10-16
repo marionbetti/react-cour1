@@ -88,3 +88,23 @@ const film1 = name => name;
 
 console.log(film());
 console.log(film1("ET"));
+
+const articles = [
+  { id: 1, titre: "titre1", isActif: true },
+  { id: 2, titre: "titre2", isActif: false },
+  { id: 3, titre: "titre3", isActif: true }
+];
+
+// Tous les articles qui sont en { true } sur la valuer is Actif
+// parcourir chaque item du tableau
+// retourner un nouveau tableau filtré en fonction d'une condition
+
+// manière 1:
+let result = articles.filter(function(a) {
+  return a.isActif;
+});
+console.log(result);
+
+// manière:
+result = articles.filter(a => a.isActif);
+console.log(result);
